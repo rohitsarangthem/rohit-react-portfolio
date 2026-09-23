@@ -1,0 +1,171 @@
+/* =========================
+   CONTACT MODAL
+========================= */
+
+.contact-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    overflow-y: auto;
+}
+
+
+/* Modal */
+
+.contact-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fff;
+
+    padding: 50px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Close Button */
+
+.modal-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #111;
+}
+
+
+/* Modal Heading */
+
+.contact-modal h2 {
+    margin: 10px 0 15px;
+
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.contact-modal h2 span {
+    display: block;
+}
+
+
+/* Description */
+
+.modal-description {
+    margin-bottom: 30px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* Form */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #111;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+
+/* Submit Button */
+
+.form-submit {
+    border: none;
+    cursor: pointer;
+
+    width: fit-content;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .contact-modal {
+        padding: 35px 25px;
+        border-radius: 15px;
+    }
+
+    .contact-modal h2 {
+        font-size: 32px;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+    }
+
+}
