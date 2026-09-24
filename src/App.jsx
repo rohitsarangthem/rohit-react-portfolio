@@ -4,8 +4,9 @@ import HeroSection from "./Components/HeroSection";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Skills from "./Components/Skills";
-import Contact from "./components/Contact";
-import emailjs from "@emailjs/browser";
+import Contact from "./Components/Contact";
+
+
 
 
 function App() {
