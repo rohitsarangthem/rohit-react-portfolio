@@ -11,8 +11,8 @@ function Skills(){
         <div className="skills-grid">
 
           <div className="skill-card">
-            <h3>Frontend</h3>
-            <p>HTML, CSS, JavaScript, React</p>
+            <h3>Frontend & Backend</h3>
+            <p>React, Mongodb, Express JS, Node JS</p>
           </div>
 
           <div className="skill-card">
