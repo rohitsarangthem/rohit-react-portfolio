@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Contact from "./components/Contact";
+import emailjs from "@emailjs/browser";
 
 
 function App() {
@@ -118,12 +119,12 @@ function App() {
 
           <div>
             <span className="experience-year">
-              2023 — Present
+              2025 — Present
             </span>
           </div>
 
           <div>
-            <h3>Web Developer</h3>
+            <h3>Junior Developer</h3>
 
             <p>
               Working on websites, landing pages, responsive interfaces,
@@ -135,6 +136,7 @@ function App() {
               <span>WordPress</span>
               <span>Shopify</span>
               <span>React</span>
+              <span>Full Stack Web Apps</span>
             </div>
           </div>
 

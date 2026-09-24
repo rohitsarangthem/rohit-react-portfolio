@@ -1,14 +1,52 @@
-
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
+
     const [isOpen, setIsOpen] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        setIsSending(true);
+
+        emailjs
+            .sendForm(
+                "service_5nyg4e6",
+                "template_r20fnzm",
+                e.target,
+                {
+                    publicKey: "pUTHMizGtcwnpegGj",
+                }
+            )
+            .then(
+                () => {
+                    alert("Message sent successfully!");
+
+                    e.target.reset();
+                    setIsSending(false);
+                    setIsOpen(false);
+                },
+                (error) => {
+                    console.error("EmailJS Error:", error);
+
+                    alert("Failed to send message. Please try again.");
+
+                    setIsSending(false);
+                }
+            );
+    };
 
     return (
         <>
             {/* Contact Section */}
+
             <section className="contact-section" id="contact">
 
-                <p className="section-label">05 — CONTACT</p>
+                <p className="section-label">
+                    05 — CONTACT
+                </p>
 
                 <h2>
                     Let's build something
@@ -21,6 +59,7 @@ function Contact() {
                 </p>
 
                 <button
+                    type="button"
                     className="primary-button"
                     onClick={() => setIsOpen(true)}
                 >
@@ -31,6 +70,7 @@ function Contact() {
 
 
             {/* Contact Popup */}
+
             {isOpen && (
                 <div
                     className="contact-modal-overlay"
@@ -43,7 +83,9 @@ function Contact() {
                     >
 
                         {/* Close Button */}
+
                         <button
+                            type="button"
                             className="modal-close"
                             onClick={() => setIsOpen(false)}
                         >
@@ -52,7 +94,10 @@ function Contact() {
 
 
                         {/* Modal Header */}
-                        <p className="section-label">GET IN TOUCH</p>
+
+                        <p className="section-label">
+                            GET IN TOUCH
+                        </p>
 
                         <h2>
                             Let's talk about
@@ -66,68 +111,124 @@ function Contact() {
 
 
                         {/* Contact Form */}
-                        <form className="contact-form">
 
-                            <div className="form-group">
-                                <label htmlFor="name">Name</label>
+                        <form className="contact-form" onSubmit={sendEmail}>
 
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Your name"
-                                    required
-                                />
-                            </div>
+                            {isSent ? (
+                                <div className="thank-you-message">
+
+                                    <div className="thank-you-icon">
+                                        ✓
+                                    </div>
+
+                                    <h3>
+                                        Thank You!
+                                    </h3>
+
+                                    <p>
+                                        Your message has been sent successfully.
+                                        I'll get back to you as soon as possible.
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        className="primary-button"
+                                        onClick={() => {
+                                            setIsSent(false);
+                                            setIsOpen(false);
+                                        }}
+                                    >
+                                        Close
+                                    </button>
+
+                                </div>
+                            ) : (
+                                <form
+                                    className="contact-form"
+                                    onSubmit={sendEmail}
+                                >
+
+                                    <div className="form-group">
+
+                                        <label htmlFor="name">
+                                            Name
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            placeholder="Your name"
+                                            required
+                                        />
+
+                                    </div>
 
 
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label>
+                                    <div className="form-group">
 
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    required
-                                />
-                            </div>
+                                        <label htmlFor="email">
+                                            Email
+                                        </label>
 
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            placeholder="you@example.com"
+                                            required
+                                        />
 
-                            <div className="form-group">
-                                <label htmlFor="subject">Subject</label>
-
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    name="subject"
-                                    placeholder="What would you like to talk about?"
-                                />
-                            </div>
+                                    </div>
 
 
-                            <div className="form-group">
-                                <label htmlFor="message">Message</label>
+                                    <div className="form-group">
 
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="5"
-                                    placeholder="Tell me about your project..."
-                                    required
-                                ></textarea>
-                            </div>
+                                        <label htmlFor="subject">
+                                            Subject
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="subject"
+                                            name="subject"
+                                            placeholder="What would you like to talk about?"
+                                        />
+
+                                    </div>
 
 
-                            <button
-                                type="submit"
-                                className="primary-button form-submit"
-                            >
-                                Send Message →
-                            </button>
+                                    <div className="form-group">
 
+                                        <label htmlFor="message">
+                                            Message
+                                        </label>
+
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            rows="5"
+                                            placeholder="Tell me about your project..."
+                                            required
+                                        ></textarea>
+
+                                    </div>
+
+
+                                    <button
+                                        type="submit"
+                                        className="primary-button form-submit"
+                                        disabled={isSending}
+                                    >
+                                        {isSending
+                                            ? "Sending..."
+                                            : "Send Message →"
+                                        }
+                                    </button>
+
+                                </form>
+                            )}
                         </form>
-
                     </div>
 
                 </div>

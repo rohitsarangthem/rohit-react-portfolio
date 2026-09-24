@@ -6,15 +6,11 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.65);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 20px;
-
     z-index: 9999;
-
     overflow-y: auto;
 }
 
@@ -23,20 +19,16 @@
 
 .contact-modal {
     position: relative;
-
     width: 100%;
     max-width: 650px;
-
     max-height: 90vh;
     overflow-y: auto;
-
     background: #fff;
-
     padding: 50px;
-
     border-radius: 20px;
-
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    overflow: auto;
+    scrollbar-width: none;  
 }
 
 
@@ -67,7 +59,7 @@
 
 .contact-modal h2 {
     margin: 10px 0 15px;
-
+    color: black;
     font-size: 42px;
     line-height: 1.1;
 }
@@ -107,6 +99,7 @@
 .form-group label {
     font-size: 14px;
     font-weight: 600;
+    color: black;
 }
 
 
@@ -145,7 +138,7 @@
 .form-submit {
     border: none;
     cursor: pointer;
-
+    border: 1px solid black;
     width: fit-content;
 }
 
