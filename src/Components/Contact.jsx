@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -5,6 +6,12 @@ function Contact() {
 
     const [isOpen, setIsOpen] = useState(false);
     const [isSending, setIsSending] = useState(false);
+    const [isSent, setIsSent] = useState(false);
+
+    const closeModal = () => {
+        setIsOpen(false);
+        setIsSent(false);
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -22,11 +29,9 @@ function Contact() {
             )
             .then(
                 () => {
-                    alert("Message sent successfully!");
-
                     e.target.reset();
                     setIsSending(false);
-                    setIsOpen(false);
+                    setIsSent(true);
                 },
                 (error) => {
                     console.error("EmailJS Error:", error);
@@ -61,7 +66,10 @@ function Contact() {
                 <button
                     type="button"
                     className="primary-button"
-                    onClick={() => setIsOpen(true)}
+                    onClick={() => {
+                        setIsSent(false);
+                        setIsOpen(true);
+                    }}
                 >
                     Get In Touch →
                 </button>
@@ -72,9 +80,10 @@ function Contact() {
             {/* Contact Popup */}
 
             {isOpen && (
+
                 <div
                     className="contact-modal-overlay"
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeModal}
                 >
 
                     <div
@@ -87,62 +96,64 @@ function Contact() {
                         <button
                             type="button"
                             className="modal-close"
-                            onClick={() => setIsOpen(false)}
+                            onClick={closeModal}
                         >
                             ×
                         </button>
 
 
-                        {/* Modal Header */}
+                        {/* Modal Content */}
 
-                        <p className="section-label">
-                            GET IN TOUCH
-                        </p>
+                        {isSent ? (
 
-                        <h2>
-                            Let's talk about
-                            <span> your project.</span>
-                        </h2>
+                            <div className="thank-you-message">
 
-                        <p className="modal-description">
-                            Have a project in mind or just want to say hello?
-                            Fill out the form and I'll get back to you.
-                        </p>
-
-
-                        {/* Contact Form */}
-
-                        <form className="contact-form" onSubmit={sendEmail}>
-
-                            {isSent ? (
-                                <div className="thank-you-message">
-
-                                    <div className="thank-you-icon">
-                                        ✓
-                                    </div>
-
-                                    <h3>
-                                        Thank You!
-                                    </h3>
-
-                                    <p>
-                                        Your message has been sent successfully.
-                                        I'll get back to you as soon as possible.
-                                    </p>
-
-                                    <button
-                                        type="button"
-                                        className="primary-button"
-                                        onClick={() => {
-                                            setIsSent(false);
-                                            setIsOpen(false);
-                                        }}
-                                    >
-                                        Close
-                                    </button>
-
+                                <div className="thank-you-icon">
+                                    ✓
                                 </div>
-                            ) : (
+
+                                <h3>
+                                    Thank You!
+                                </h3>
+
+                                <p>
+                                    Your message has been sent successfully.
+                                    I'll get back to you as soon as possible.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    className="primary-button"
+                                    onClick={closeModal}
+                                >
+                                    Close
+                                </button>
+
+                            </div>
+
+                        ) : (
+
+                            <>
+
+                                {/* Modal Header */}
+
+                                <p className="section-label">
+                                    GET IN TOUCH
+                                </p>
+
+                                <h2>
+                                    Let's talk about
+                                    <span> your project.</span>
+                                </h2>
+
+                                <p className="modal-description">
+                                    Have a project in mind or just want to say hello?
+                                    Fill out the form and I'll get back to you.
+                                </p>
+
+
+                                {/* Contact Form */}
+
                                 <form
                                     className="contact-form"
                                     onSubmit={sendEmail}
@@ -227,12 +238,17 @@ function Contact() {
                                     </button>
 
                                 </form>
-                            )}
-                        </form>
+
+                            </>
+
+                        )}
+
                     </div>
 
                 </div>
+
             )}
+
         </>
     );
 }

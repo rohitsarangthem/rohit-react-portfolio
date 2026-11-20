@@ -8,7 +8,7 @@ function HeroSection() {
           <p className="small-title">HELLO, I'M ROHIT 👋</p>
 
           <h1>
-            I build modern
+            I build modern Rohit
             <span> websites & web experiences.</span>
           </h1>
 

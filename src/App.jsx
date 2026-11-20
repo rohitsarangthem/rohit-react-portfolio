@@ -28,6 +28,8 @@ function App() {
 
 
       {/* Projects */}
+
+
       <section className="section" id="projects">
 
         <p className="section-label">03 — PROJECTS</p>
@@ -35,7 +37,8 @@ function App() {
         <div className="projects-heading">
           <h2>Selected work.</h2>
           <p>
-            A few projects I've worked on and continue to build.
+            A selection of websites I've worked on, contributing to
+            design, development, customization and user experience.
           </p>
         </div>
 
@@ -43,72 +46,79 @@ function App() {
 
           <div className="project-card">
             <div className="project-number">01</div>
-
-            <h3>Job Portal</h3>
-
+            <h3>Ayurveda College</h3>
             <p>
-              A job information platform designed to help users discover
-              the latest job opportunities and recruitment updates.
+              An educational website for an Ayurvedic institution,
+              featuring course information, programs and student resources.
             </p>
-
             <div className="project-tags">
               <span>WordPress</span>
-              <span>SEO</span>
-              <span>PHP</span>
+              <span>Elementor</span>
+              <span>CSS</span>
             </div>
-
-            <a href="#" className="project-link">
-              View Project ↗
-            </a>
           </div>
-
 
           <div className="project-card">
             <div className="project-number">02</div>
-
-            <h3>E-Commerce Store</h3>
-
+            <h3>Jacuzzis Florida</h3>
             <p>
-              A modern e-commerce website with responsive layouts,
-              product pages and customized shopping experiences.
+              A product-focused website showcasing luxury hot tubs,
+              spas and outdoor living solutions.
             </p>
-
             <div className="project-tags">
-              <span>Shopify</span>
-              <span>Liquid</span>
-              <span>CSS</span>
+              <span>WordPress</span>
+              <span>Elementor</span>
+              <span>Responsive Design</span>
             </div>
-
-            <a href="#" className="project-link">
-              View Project ↗
-            </a>
           </div>
-
 
           <div className="project-card">
             <div className="project-number">03</div>
-
-            <h3>React Portfolio</h3>
-
+            <h3>Libertas Mind</h3>
             <p>
-              My first React project, built to learn components,
-              JSX, state and modern frontend development.
+              A professional mental wellness website designed to
+              present treatment services, resources and patient information.
             </p>
-
             <div className="project-tags">
-              <span>React</span>
-              <span>JavaScript</span>
+              <span>WordPress</span>
+              <span>Elementor</span>
               <span>CSS</span>
             </div>
+          </div>
 
-            <a href="#" className="project-link">
-              View Project ↗
-            </a>
+          <div className="project-card">
+            <div className="project-number">04</div>
+            <h3>Ardor Athletics</h3>
+            <p>
+              An athletics-focused website built to showcase sports,
+              fitness and brand-related content.
+            </p>
+            <div className="project-tags">
+              <span>WordPress</span>
+              <span>Web Design</span>
+              <span>CSS</span>
+            </div>
+          </div>
+
+          <div className="project-card">
+            <div className="project-number">05</div>
+            <h3>Couture Jardin</h3>
+            <p>
+              A premium outdoor furniture website showcasing
+              elegant collections and luxury outdoor living products.
+            </p>
+            <div className="project-tags">
+              <span>WordPress</span>
+              <span>Web Design</span>
+              <span>CSS</span>
+            </div>
           </div>
 
         </div>
 
       </section>
+
+
 
 
       {/* Experience */}
@@ -155,9 +165,29 @@ function App() {
         <p>© 2026 Rohit Sarangthem</p>
 
         <div>
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Fiverr</a>
+          <a
+            href="https://github.com/rohitsarangthem/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/rohit-sarangthem/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://www.fiverr.com/s/gvy6j3A"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Fiverr
+          </a>
         </div>
 
       </footer>
